@@ -23,3 +23,6 @@ strong {
 .moe {
   text-align: center;
 }
+[data-ember-action] {
+  cursor: pointer;
+}
