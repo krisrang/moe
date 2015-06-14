@@ -19,14 +19,12 @@ export default Ember.Object.extend({
 
   preload: function(resolve) {
     let self = this,
-        req = new XMLHttpRequest();
+        img = new Image();
 
-    req.onload = function() {
+    img.onload = function() {
       resolve(self);
-    }
-
-    req.open("GET", this.get('url'), true);
-    req.send();
+    };
+    img.src = this.get('url');
   },
 
   url: function() {
