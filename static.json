@@ -21,13 +21,13 @@
     "/crossdomain.xml": { "Cache-Control": "public, max-age=512000" }
   },
   "redirects": {
-    "/stuff/": {
-      "url": "https://files.kris.moe/",
-      "status": 301
+    "~ ^/stuff/(.*)": {
+      "url": "https://files.kris.moe/$1",
+      "status": 302
     },
-    "/files/": {
-      "url": "https://files.kris.moe/files/",
-      "status": 301
+    "~ ^/files/(.*)": {
+      "url": "https://files.kris.moe/files/$1",
+      "status": 302
     }
   }
 }
