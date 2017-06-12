@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+deploy_to_dokku:
+  stage: deploy
+  image: pebbles/ubuntu-ssh
+  before_script:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -p 2341 -H dokku.rang.ee >> ~/.ssh/known_hosts
+  script:
+    - git push ssh://dokku@dokku.rang.ee:2341/moe master
